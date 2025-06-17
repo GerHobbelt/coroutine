@@ -20,6 +20,8 @@
 #  include BOOST_ABI_PREFIX
 #endif
 
+#if defined(BOOST_CONTEXT_SEGMENTS)
+
 // forward declaration for splitstack-functions defined in libgcc
 extern "C" {
 void *__splitstack_makecontext( std::size_t,
@@ -61,6 +63,8 @@ struct basic_segmented_stack_allocator
 typedef basic_segmented_stack_allocator< stack_traits > segmented_stack_allocator;
 
 }}
+
+#endif // BOOST_CONTEXT_SEGMENTS
 
 #ifdef BOOST_HAS_ABI_HEADERS
 #  include BOOST_ABI_SUFFIX
